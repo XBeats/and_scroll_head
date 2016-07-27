@@ -1,4 +1,4 @@
-package com.aitangba.scrollhead;
+package com.aitangba.scrollhead.custombehavior;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
