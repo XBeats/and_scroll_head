@@ -26,13 +26,15 @@ Usage
 
 ```java 
    
-@Override
-public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency){
-}
+     @Override
+    public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency) {
+        return super.layoutDependsOn(parent, child, dependency);
+    }
 
-@Override
-public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency){
-}
+     @Override
+    public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
+        return super.onDependentViewChanged(parent, child, dependency);
+    }
 
 ```  
 
@@ -41,7 +43,7 @@ public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View
    
      @Override
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View child, View directTargetChild, View target, int nestedScrollAxes) {
-        return true;
+        return super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target, nestedScrollAxes);
     }  
 
     @Override
@@ -52,7 +54,9 @@ public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View
 ```
 
 
-#### 关于滑动      `app:layout_scrollFlags="scroll|enterAlways"`    
+#### 关于滑动
+`app:layout_scrollFlags="scroll|enterAlways"`
+    
 1. scroll: 所有想滚动出屏幕的view都需要设置这个flag， 没有设置这个flag的view将被固定在屏幕顶部。例如，TabLayout 没有设置这个值，将会停留在屏幕顶部；  
 2. enterAlways: 设置这个flag时，向下的滚动都会导致该view变为可见，启用快速“返回模式”；  
 3. enterAlwaysCollapsed: 当你的视图已经设置minHeight属性又使用此标志时，你的视图只能已最小高度进入，只有当滚动视图到达顶部时才扩大到完整高度；  
